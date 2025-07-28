@@ -4,20 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mansoura National University</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --main-color: #0c1e3e;     /* كحلي */
-      --accent-color: #c39a44;   /* ذهبي */
+      --main-color: #0c1e3e;
+      --accent-color: #c39a44;
       --text-light: #ffffff;
     }
 
     body {
       font-family: 'Roboto', sans-serif;
       background: var(--main-color);
-      text-align: center;
-      padding: 20px;
       color: var(--text-light);
+      padding: 20px;
+      text-align: center;
     }
 
     .profile-img {
@@ -30,13 +30,12 @@
       font-weight: bold;
       font-size: 1.3em;
       margin: 10px 0 5px;
-      color: var(--text-light);
     }
 
     .title {
-      color: #ddd;
       font-size: 1em;
       margin-bottom: 20px;
+      color: #ddd;
     }
 
     .link-button {
@@ -45,9 +44,7 @@
       justify-content: start;
       gap: 15px;
       padding: 15px;
-      margin: 10px auto;
-      width: 90%;
-      max-width: 400px;
+      width: 100%;
       border-radius: 10px;
       text-decoration: none;
       font-size: 1em;
@@ -55,6 +52,7 @@
       border: 2px solid var(--accent-color);
       background-color: #ffffff;
       color: var(--main-color);
+      box-sizing: border-box;
     }
 
     .link-button:hover {
@@ -63,7 +61,6 @@
 
     .link-icon {
       width: 24px;
-      filter: none;
     }
 
     .section-title {
@@ -73,70 +70,261 @@
       letter-spacing: 1px;
     }
 
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
+    .social-links .full-width {
+      grid-column: span 2;
+      justify-content: center;
+    }
+
     footer {
       margin-top: 40px;
       font-size: 0.85em;
       color: #ccc;
     }
+
+    /* Chatbot */
+    .chatbot-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--accent-color);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .chatbot-button img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .chatbot-window {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 320px;
+      max-height: 500px;
+      background: #fff;
+      color: #000;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .chatbot-header {
+      background: var(--main-color);
+      color: #fff;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .chatbot-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    .chatbot-footer {
+      padding: 10px;
+      background: #f2f2f2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .chatbot-footer button {
+      flex: 1 1 100%;
+      padding: 10px;
+      border: none;
+      background: var(--accent-color);
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .chatbot-footer button:hover {
+      background: #a07c35;
+    }
+
+    .chat-message {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      align-self: flex-start;
+      max-width: 90%;
+      font-size: 0.9em;
+    }
+
+    .chatbot-typing {
+      font-size: 0.85em;
+      color: #999;
+      margin-bottom: 5px;
+    }
+
   </style>
 </head>
 <body>
 
-  <img src="logo.png" alt="University Logo" class="profile-img" />
-  <div class="username">@mnuegypt</div>
-  <div class="title">Mansoura National University</div>
+<!-- Main Content -->
+<img src="logo.png" alt="University Logo" class="profile-img" />
+<div class="username">@mnuegypt</div>
+<div class="title">Mansoura National University</div>
 
-  <!-- Main Links (Website - WhatsApp - Email) -->
-  <a href="https://mansnu.edu.eg" target="_blank" class="link-button">
-    <img src="logo.png" alt="Website" class="link-icon" /> Website
-  </a>
+<a href="https://mansnu.edu.eg" target="_blank" class="link-button" style="max-width: 400px; margin: 10px auto;">
+  <img src="logo.png" alt="Website" class="link-icon" /> Website
+</a>
 
-  <div class="section-title">Contact us</div>
+<div class="section-title">Contact us</div>
 
-  <a href="https://wa.me/201271261661" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" class="link-icon" /> WhatsApp
-  </a>
+<a href="https://wa.me/201271261661" target="_blank" class="link-button" style="max-width: 400px; margin: 10px auto;">
+  <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" class="link-icon" /> WhatsApp
+</a>
 
-  <a href="mailto:info@mansnu.edu.eg" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" class="link-icon" /> Email
-  </a>
+<a href="mailto:info@mansnu.edu.eg" target="_blank" class="link-button" style="max-width: 400px; margin: 10px auto;">
+  <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" class="link-icon" /> Email
+</a>
 
-  <!-- Social Media Buttons -->
-  <div class="section-title">OUR SOCIAL PAGE</div>
+<div class="section-title">OUR SOCIAL PAGE</div>
 
-  <a href="https://www.facebook.com/MansouraNationalUniversity" target="_blank" class="link-button">
+<div class="social-links">
+  <a href="https://www.facebook.com/MansouraNationalUniversity" target="_blank" class="link-button full-width">
     <img src="https://img.icons8.com/ios-filled/50/000000/facebook.png" class="link-icon" /> Facebook
   </a>
-
   <a href="https://instagram.com/mnuegypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" class="link-icon" /> Instagram
   </a>
-
   <a href="https://youtube.com/@mnuegypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/youtube-play.png" class="link-icon" /> YouTube
   </a>
-
   <a href="https://linkedin.com/school/mnuegypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" class="link-icon" /> LinkedIn
   </a>
-
   <a href="https://x.com/mnuegypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/x.png" class="link-icon" /> X (Formerly Twitter)
   </a>
-
   <a href="https://www.tiktok.com/@mnuegypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" class="link-icon" /> TikTok
   </a>
-
   <a href="https://t.me/MNUEgypt" target="_blank" class="link-button">
     <img src="https://img.icons8.com/ios-filled/50/000000/telegram.png" class="link-icon" /> Telegram
   </a>
+</div>
 
-  <footer>
-  	All rights reserved © 2025, Mansoura National University. <br />
-  	Designed and Developed with <span style="color: red;">❤️</span> by 
+<footer>
+  All rights reserved © 2025, Mansoura National University.<br />
+  Designed and Developed with <span style="color: red;">❤️</span> by
   <a href="" style="color: var(--accent-color); text-decoration: none;">Ahmed Rashed</a>
-   </footer>
+</footer>
+
+<!-- Chatbot Button -->
+<button class="chatbot-button" onclick="toggleChatbot()">
+  <img src="https://img.icons8.com/color/48/robot-2.png" alt="Chatbot" />
+</button>
+
+<!-- Chatbot Window -->
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    Chat Assistant
+    <span style="cursor: pointer;" onclick="toggleChatbot()">✖</span>
+  </div>
+  <div class="chatbot-body" id="chatbotBody">
+    <!-- Messages will appear here -->
+  </div>
+  <div class="chatbot-footer">
+    <button onclick="sendQuestion('المصروفات الدراسية')">المصروفات الدراسية</button>
+    <button onclick="sendQuestion('ما البرامج الأكاديمية المتاحة بالجامعة؟')">ما البرامج الأكاديمية المتاحة بالجامعة؟</button>
+    <button onclick="sendQuestion('كيف يمكنني الإلتحاق بإحدى كليات الجامعة؟')">كيف يمكنني الإلتحاق بإحدى كليات الجامعة؟</button>
+    <button onclick="sendQuestion('الاسكان الجامعي')">الاسكان الجامعي</button>
+    <button onclick="sendQuestion('الدعم الفني لمكتب التنسيق والقبول')">الدعم الفني لمكتب التنسيق والقبول</button>
+  </div>
+</div>
+
+<script>
+  function toggleChatbot() {
+    const bot = document.getElementById('chatbotWindow');
+    bot.style.display = bot.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function sendQuestion(question) {
+    const body = document.getElementById('chatbotBody');
+
+    // رسالة المستخدم
+    const userMsg = document.createElement('div');
+    userMsg.className = 'chat-message';
+    userMsg.style.alignSelf = 'flex-end';
+    userMsg.style.background = '#d1ecf1';
+    userMsg.textContent = question;
+    body.prepend(userMsg);
+
+    // مؤشر الكتابة
+    const typing = document.createElement('div');
+    typing.className = 'chatbot-typing';
+    typing.id = 'typingIndicator';
+    typing.textContent = 'يكتب الآن...';
+    body.prepend(typing);
+
+    // بعد ثانية، أزل المؤشر وأضف الرد
+    setTimeout(() => {
+      const typingEl = document.getElementById('typingIndicator');
+      if (typingEl) typingEl.remove();
+
+      const reply = document.createElement('div');
+      reply.className = 'chat-message';
+      reply.innerHTML = getAnswer(question); // نستخدم innerHTML للسماح بالروابط
+      body.prepend(reply);
+    }, 1000);
+  }
+
+  function getAnswer(question) {
+    switch (question) {
+      case 'المصروفات الدراسية':
+        return 'يمكن التعرف على المصروفات الدراسية المطبقة على الطلاب الجدد من خلال الرابط التالي<br>' +
+                '<a href="https://www.mansnu.edu.eg/fees" target="_blank" style="color: #c39a44;">https://www.mansnu.edu.eg/fees</a>';
+      case 'ما البرامج الأكاديمية المتاحة بالجامعة؟':
+        return 'يمكن التعرف على البرامج الأكاديمية والكليات المتاحة بالجامعة من خلال الرابط التالي<br>' +
+                '<a href="https://www.mansnu.edu.eg/programs-ar" target="_blank" style="color: #c39a44;">https://www.mansnu.edu.eg/programs-ar</a>';
+      case 'كيف يمكنني الإلتحاق بإحدى كليات الجامعة؟':
+        return 'يمكن معرفة المزيد من المعلومات حول كيفية الالتحاق بإحدى كليات الجامعة من خلال الرابط التالي<br>' +
+                '<a href="https://www.mansnu.edu.eg/admission-office" target="_blank" style="color: #c39a44;">https://www.mansnu.edu.eg/admission-office</a>';
+      case 'الاسكان الجامعي':
+        return 'يمكن معرفة المزيد من المعلومات حول الاسكان الجامعي من خلال الرابط التالي<br>' +
+                '<a href="https://www.mansnu.edu.eg/university-life/mnu-housing" target="_blank" style="color: #c39a44;">https://www.mansnu.edu.eg/university-life/mnu-housing</a>';
+      case 'الدعم الفني لمكتب التنسيق والقبول':
+        return 'يُمكن التواصل مع الدعم الفني لمكتب التنسيق والقبول بالجامعة من خلال الرابط التالي:<br>' +
+                '<a href="https://wa.me/201556251415" target="_blank" style="color: #c39a44;">https://wa.me/201556251415</a><br>' +
+                'ويمكن كذلك التواصل تليفونيًا مع المكتب على الرقم التالي:<br>' +
+                '+201556251415';
+
+      default:
+        return 'عذرًا، لا يمكنني الإجابة على هذا السؤال حاليًا.';
+    }
+  }
+</script>
 
 </body>
 </html>
