@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mansoura National University</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --main-color: #0c1e3e;
@@ -48,7 +50,7 @@
       border-radius: 10px;
       text-decoration: none;
       font-size: 1em;
-      transition: background 0.3s, border 0.3s;
+      transition: background 0.3s, border 0.3s, transform 0.2s;
       border: 2px solid var(--accent-color);
       background-color: #ffffff;
       color: var(--main-color);
@@ -57,6 +59,7 @@
 
     .link-button:hover {
       background-color: #f2f2f2;
+      transform: translateY(-2px);
     }
 
     .link-icon {
@@ -105,80 +108,558 @@
       color: #ccc;
     }
 
-@media (max-width: 600px) {
-  .contact-links {
-    flex-direction: column;
-    gap: 10px;
-  }
+    /* =========================
+       Premium Sound Button
+       ========================= */
 
-  .contact-links .link-button {
-    max-width: 100%;
-  }
-}
+    #soundControl {
+      position: fixed;
+      top: 20px;
+      right: 20px;
 
+      width: 48px;
+      height: 48px;
+
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+
+      background: rgba(12, 30, 62, 0.96);
+      color: var(--accent-color);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      z-index: 9999;
+
+      box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.35),
+        inset 0 0 8px rgba(195, 154, 68, 0.15);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    #soundControl:hover {
+      transform: scale(1.08);
+      background: rgba(195, 154, 68, 0.15);
+
+      box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.4),
+        0 0 12px rgba(195, 154, 68, 0.35);
+    }
+
+    #soundControl:active {
+      transform: scale(0.95);
+    }
+
+    #soundControl svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* Small animation while music is playing */
+
+    #soundControl.playing {
+      animation: soundPulse 2s infinite;
+    }
+
+    @keyframes soundPulse {
+      0% {
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.35),
+          0 0 0 0 rgba(195, 154, 68, 0.35);
+      }
+
+      70% {
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.35),
+          0 0 0 8px rgba(195, 154, 68, 0);
+      }
+
+      100% {
+        box-shadow:
+          0 4px 15px rgba(0, 0, 0, 0.35),
+          0 0 0 0 rgba(195, 154, 68, 0);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .contact-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .contact-links .link-button {
+        max-width: 100%;
+      }
+
+      #soundControl {
+        top: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+      }
+    }
   </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X18DLF14B0"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'G-X18DLF14B0');
   </script>
+
 </head>
+
 <body>
 
-<!-- Main Content -->
-<img src="logo.png" alt="University Logo" class="profile-img" />
-<div class="username">@mnuegypt</div>
-<div class="title">Mansoura National University</div>
+<!-- =========================
+     Main Content
+     ========================= -->
 
-<a href="https://mansnu.edu.eg" target="_blank" class="link-button" style="max-width: 400px; margin: 10px auto;">
-  <img src="logo.png" alt="Website" class="link-icon" /> Website
+<img src="logo.png" alt="University Logo" class="profile-img" />
+
+<div class="username">@mnuegypt</div>
+
+<div class="title">
+  Mansoura National University
+</div>
+
+
+<a href="https://mansnu.edu.eg"
+   target="_blank"
+   class="link-button"
+   style="max-width: 400px; margin: 10px auto;">
+
+  <img src="logo.png" alt="Website" class="link-icon" />
+
+  Website
+
 </a>
 
-<div class="section-title">Contact us</div>
+
+<div class="section-title">
+  Contact us
+</div>
+
 
 <div class="contact-links">
-  <a href="https://wa.me/201067705333" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" class="link-icon" /> WhatsApp
+
+  <a href="https://wa.me/201067705333"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png"
+      class="link-icon"
+    />
+
+    WhatsApp
+
   </a>
 
-  <a href="mailto:info@mansnu.edu.eg" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/new-post.png" class="link-icon" /> Email
+
+  <a href="mailto:info@mansnu.edu.eg"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/new-post.png"
+      class="link-icon"
+    />
+
+    Email
+
   </a>
-  
+
 </div>
 
-<div class="section-title">OUR SOCIAL PAGE</div>
+
+<div class="section-title">
+  OUR SOCIAL PAGE
+</div>
+
 
 <div class="social-links">
-  <a href="https://www.facebook.com/MansouraNationalUniversity" target="_blank" class="link-button full-width">
-    <img src="https://img.icons8.com/ios-filled/50/000000/facebook.png" class="link-icon" /> Facebook
+
+  <a href="https://www.facebook.com/MansouraNationalUniversity"
+     target="_blank"
+     class="link-button full-width">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/facebook.png"
+      class="link-icon"
+    />
+
+    Facebook
+
   </a>
-  <a href="https://instagram.com/mnuegypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" class="link-icon" /> Instagram
+
+
+  <a href="https://instagram.com/mnuegypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png"
+      class="link-icon"
+    />
+
+    Instagram
+
   </a>
-  <a href="https://youtube.com/@mnuegypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/youtube-play.png" class="link-icon" /> YouTube
+
+
+  <a href="https://youtube.com/@mnuegypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/youtube-play.png"
+      class="link-icon"
+    />
+
+    YouTube
+
   </a>
-  <a href="https://linkedin.com/school/mnuegypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png" class="link-icon" /> LinkedIn
+
+
+  <a href="https://linkedin.com/school/mnuegypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/linkedin.png"
+      class="link-icon"
+    />
+
+    LinkedIn
+
   </a>
-  <a href="https://x.com/mnuegypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/x.png" class="link-icon" /> X (Twitter)
+
+
+  <a href="https://x.com/mnuegypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/x.png"
+      class="link-icon"
+    />
+
+    X (Twitter)
+
   </a>
-  <a href="https://www.tiktok.com/@mnuegypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/tiktok.png" class="link-icon" /> TikTok
+
+
+  <a href="https://www.tiktok.com/@mnuegypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/tiktok.png"
+      class="link-icon"
+    />
+
+    TikTok
+
   </a>
-  <a href="https://t.me/MNUEgypt" target="_blank" class="link-button">
-    <img src="https://img.icons8.com/ios-filled/50/000000/telegram.png" class="link-icon" /> Telegram
+
+
+  <a href="https://t.me/MNUEgypt"
+     target="_blank"
+     class="link-button">
+
+    <img
+      src="https://img.icons8.com/ios-filled/50/000000/telegram.png"
+      class="link-icon"
+    />
+
+    Telegram
+
   </a>
+
 </div>
 
+
 <footer>
-  All rights reserved © 2026, Mansoura National University.<br />
-  Designed and Developed with <span style="color: red;">❤️</span> by
-  <a href="https://iarashed.github.io/me/" style="color: var(--accent-color); text-decoration: none;">Ahmed Rashed</a>
+
+  All rights reserved © 2026, Mansoura National University.
+  <br />
+
+  Designed and Developed with
+  <span style="color: red;">❤️</span>
+  by
+
+  <a
+    href="https://iarashed.github.io/me/"
+    style="color: var(--accent-color); text-decoration: none;"
+  >
+    Ahmed Rashed
+  </a>
+
 </footer>
+
+
+<!-- =========================
+     Background Music
+     ========================= -->
+
+<audio id="bgMusic" loop preload="none">
+
+  <source src="music.mp3" type="audio/mpeg">
+
+  Your browser does not support the audio element.
+
+</audio>
+
+
+<!-- =========================
+     Sound Control Button
+     ========================= -->
+
+<button id="soundControl"
+        aria-label="Toggle sound"
+        title="Turn sound on/off">
+
+  <!-- Speaker Icon -->
+  <svg id="soundIcon"
+       viewBox="0 0 24 24"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <path d="M3 9v6h4l5 4V5L7 9H3z"></path>
+
+    <path d="M14 8.5a1 1 0 0 1 1.5-.86
+             5 5 0 0 1 0 8.72
+             1 1 0 1 1-1-1.72
+             3 3 0 0 0 0-5.28
+             1 1 0 0 1-.5-.86z">
+    </path>
+
+  </svg>
+
+</button>
+
+
+<script>
+
+  window.addEventListener('load', function () {
+
+    const music = document.getElementById('bgMusic');
+    const soundControl = document.getElementById('soundControl');
+    const soundIcon = document.getElementById('soundIcon');
+
+
+    /* =========================
+       Icons
+       ========================= */
+
+    const speakerOn = `
+      <path d="M3 9v6h4l5 4V5L7 9H3z"></path>
+
+      <path d="M14 8.5a1 1 0 0 1 1.5-.86
+               5 5 0 0 1 0 8.72
+               1 1 0 1 1-1-1.72
+               3 3 0 0 0 0-5.28
+               1 1 0 0 1-.5-.86z">
+      </path>
+    `;
+
+
+    const speakerOff = `
+      <path d="M3 9v6h4l5 4V5L7 9H3z"></path>
+
+      <path d="M16 9l5 5m0-5l-5 5"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round">
+      </path>
+    `;
+
+
+    /* =========================
+       Update Button
+       ========================= */
+
+    function updateSoundButton() {
+
+      if (!music.paused) {
+
+        soundIcon.innerHTML = speakerOn;
+
+        soundControl.classList.add('playing');
+
+        soundControl.setAttribute(
+          'aria-label',
+          'Mute sound'
+        );
+
+        soundControl.setAttribute(
+          'title',
+          'Mute sound'
+        );
+
+      } else {
+
+        soundIcon.innerHTML = speakerOff;
+
+        soundControl.classList.remove('playing');
+
+        soundControl.setAttribute(
+          'aria-label',
+          'Turn sound on'
+        );
+
+        soundControl.setAttribute(
+          'title',
+          'Turn sound on'
+        );
+
+      }
+
+    }
+
+
+    /* =========================
+       Load music after page load
+       ========================= */
+
+    setTimeout(function () {
+
+      music.load();
+
+      music.play()
+        .then(function () {
+
+          updateSoundButton();
+
+        })
+        .catch(function () {
+
+          /*
+             Browser blocked autoplay.
+             Music will start after first
+             user interaction.
+          */
+
+          updateSoundButton();
+
+        });
+
+    }, 1000);
+
+
+    /* =========================
+       Sound Button
+       ========================= */
+
+    soundControl.addEventListener('click', function (event) {
+
+      event.stopPropagation();
+
+      if (music.paused) {
+
+        music.play()
+          .then(function () {
+
+            updateSoundButton();
+
+          })
+          .catch(function () {
+
+            updateSoundButton();
+
+          });
+
+      } else {
+
+        music.pause();
+
+        updateSoundButton();
+
+      }
+
+    });
+
+
+    /* =========================
+       Start after first interaction
+       ========================= */
+
+    function startMusicOnInteraction() {
+
+      if (music.paused) {
+
+        music.play()
+          .then(function () {
+
+            updateSoundButton();
+
+          })
+          .catch(function () {});
+
+      }
+
+      document.removeEventListener(
+        'click',
+        startMusicOnInteraction
+      );
+
+      document.removeEventListener(
+        'touchstart',
+        startMusicOnInteraction
+      );
+
+    }
+
+
+    document.addEventListener(
+      'click',
+      startMusicOnInteraction,
+      { once: true }
+    );
+
+
+    document.addEventListener(
+      'touchstart',
+      startMusicOnInteraction,
+      { once: true }
+    );
+
+
+    /* =========================
+       Keep button synchronized
+       ========================= */
+
+    music.addEventListener(
+      'play',
+      updateSoundButton
+    );
+
+    music.addEventListener(
+      'pause',
+      updateSoundButton
+    );
+
+  });
+
+</script>
+
+</body>
+</html>
